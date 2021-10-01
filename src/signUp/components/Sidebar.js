@@ -10,8 +10,6 @@ import  {useRef, useState, useEffect } from "react";
 import firebase from '@firebase/app-compat';
 import { useAuth } from '../../context/AuthContext';
 import { db } from '../../firebase/firebase';
-
-
 import {Button }  from 'react-bootstrap'
 
     var uiConfig = {
@@ -66,9 +64,10 @@ import {Button }  from 'react-bootstrap'
                 'email': user.email
             })
               setUser(user);
+              history.push("/")
             });
           
-          history.push("/")
+          
         } catch(err) {
           setError("Failed to create an account")
           console.log(err)
