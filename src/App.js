@@ -4,6 +4,7 @@ import React ,{useEffect , useState} from "react"
 import Recipe from './Recipe';
 import { faUsers,faUser, faCut, faBullhorn, faPenNib, faCircle, faPalette, faVolumeUp, faSmile, faGrin, faShekelSign, faTv, faUserTie, faFolder, faPaintBrush, faCircleNotch, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Link, useHistory } from "react-router-dom";
 import firebase from '@firebase/app-compat';
 
@@ -66,50 +67,23 @@ useEffect(() => {
   }
   return (
     <div className="App">
-      <div className="topnav__right">
-                <div className="topnav__right-item">
-                    {/* dropdown here */}
-                   
-                </div>
-                <div className="topnav__right-item">
-                <button  type="button" className="button">Sign out</button>
-                  
-                </div>
+      
+           
+            <h1 className="title">Welcome, choose your healthy food 🍛 ,<br></br> and Enjoy</h1>
+            
+            <button onClick={signOut} type="button" className="button">Sign out</button>
+            
+            <div className="topnav__right-item">
                 
-                
-            </div>
-      <form onSubmit={getSearch} className="search-form">
-        <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
-        <style>
-        {`    
-.button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: rgb(230, 22, 126);
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-}
-
-.button:hover {background-color: #e42ab5}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-`}
-</style>
+                <form onSubmit={getSearch} className="search-form" >
+        <input className="search-bar" type="text" value={search} onChange={updateSearch} placeholder=" Enter ingridient ..."/>
+       
         <button className="button" type="submit">Search
          </button>
          
       </form>
+                </div>
+      
       
       <div className="recipes">
       {recipes.map(recipe=>(
